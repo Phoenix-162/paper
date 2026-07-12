@@ -596,7 +596,4 @@ func _on_select(selected:PaperObject):
 						btn.text = param[1]
 						
 			wraper[-1].add_child(prop)
-			var anim:Tween= btn.create_tween()
-			anim.tween_property(btn,"offset_transform_position",Vector2(0,40),0.5)
-			anim.tween_property(btn,"offset_transform_position",Vector2(0,0),0.5)
 #endregion

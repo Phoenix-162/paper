@@ -1,0 +1,141 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb0fyoqlgtljj"]
+
+[ext_resource type="Script" uid="uid://d4gdq1peawl2g" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Theme" uid="uid://cwmoxp57hgxds" path="res://assets/ui themes/dock panel.tres" id="2_0wfyh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+metadata/_edit_vertical_guides_ = [8.0, 1144.0, 1039.0]
+metadata/_edit_horizontal_guides_ = [8.0, 648.0, 640.0, 43.0, 43.0]
+
+[node name="main panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 43.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplit" type="HSplitContainer" parent="main panel"]
+layout_mode = 2
+theme = ExtResource("2_0wfyh")
+
+[node name="Hsplit" type="HSplitContainer" parent="main panel/HSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_0wfyh")
+
+[node name="left" type="VBoxContainer" parent="main panel/HSplit/Hsplit"]
+visible = false
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/dock = 1
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/Hsplit/left"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="pages" type="TabContainer" parent="main panel/HSplit/Hsplit/left"]
+custom_minimum_size = Vector2(234, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="Vsplit" type="VSplitContainer" parent="main panel/HSplit/Hsplit"]
+layout_mode = 2
+theme = ExtResource("2_0wfyh")
+
+[node name="main" type="VBoxContainer" parent="main panel/HSplit/Hsplit/Vsplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+metadata/dock = 0
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/Hsplit/Vsplit/main"]
+layout_mode = 2
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="tabs page" type="TabContainer" parent="main panel/HSplit/Hsplit/Vsplit/main"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="bottom" type="VBoxContainer" parent="main panel/HSplit/Hsplit/Vsplit"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+metadata/dock = 3
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/Hsplit/Vsplit/bottom"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="pages" type="TabContainer" parent="main panel/HSplit/Hsplit/Vsplit/bottom"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="right" type="VBoxContainer" parent="main panel/HSplit"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/dock = 2
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/right"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="pages" type="TabContainer" parent="main panel/HSplit/right"]
+custom_minimum_size = Vector2(234, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="popup" type="PopupMenu" parent="."]
+unique_name_in_owner = true
+sdf_oversize = 0
+sdf_scale = 2
+oversampling_override = 1.0
+size = Vector2i(38, 13)
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5qli")
+hide_on_item_selection = false
+prefer_native_menu = true
+item_count = 1
+item_0/text = "dsshudk"
+item_0/id = 0
+
+[connection signal="tab_rmb_clicked" from="main panel/HSplit/Hsplit/Vsplit/main/tab bar" to="." method="_on_tab_bar_tab_rmb_clicked"]

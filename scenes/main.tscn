@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bb0fyoqlgtljj"]
+
+[ext_resource type="Script" uid="uid://d4gdq1peawl2g" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Theme" uid="uid://cwmoxp57hgxds" path="res://assets/ui themes/dock panel.tres" id="2_0wfyh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htemk"]
+
+[node name="main" type="VBoxContainer" unique_id=256113408]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_o5qli")
+
+[node name="main panel" type="PanelContainer" parent="." unique_id=99002850]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htemk")
+
+[node name="HSplit" type="HSplitContainer" parent="main panel" unique_id=994022591]
+layout_mode = 2
+theme = ExtResource("2_0wfyh")
+
+[node name="Hsplit" type="HSplitContainer" parent="main panel/HSplit" unique_id=1441982145]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_0wfyh")
+
+[node name="left" type="VBoxContainer" parent="main panel/HSplit/Hsplit" unique_id=1862262076]
+visible = false
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/dock = 1
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/Hsplit/left" unique_id=1264208422]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="pages" type="TabContainer" parent="main panel/HSplit/Hsplit/left" unique_id=2108456578]
+custom_minimum_size = Vector2(234, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="Vsplit" type="VSplitContainer" parent="main panel/HSplit/Hsplit" unique_id=796677934]
+layout_mode = 2
+theme = ExtResource("2_0wfyh")
+
+[node name="main" type="VBoxContainer" parent="main panel/HSplit/Hsplit/Vsplit" unique_id=1849384095]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+metadata/dock = 0
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/Hsplit/Vsplit/main" unique_id=207971809]
+layout_mode = 2
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="tabs page" type="TabContainer" parent="main panel/HSplit/Hsplit/Vsplit/main" unique_id=1508969866]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="bottom" type="VBoxContainer" parent="main panel/HSplit/Hsplit/Vsplit" unique_id=1861011714]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+metadata/dock = 3
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/Hsplit/Vsplit/bottom" unique_id=378607232]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="pages" type="TabContainer" parent="main panel/HSplit/Hsplit/Vsplit/bottom" unique_id=3701977]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="right" type="VBoxContainer" parent="main panel/HSplit" unique_id=295462362]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/dock = 2
+
+[node name="tab bar" type="TabBar" parent="main panel/HSplit/right" unique_id=1027693377]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_0wfyh")
+tab_close_display_policy = 1
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+
+[node name="pages" type="TabContainer" parent="main panel/HSplit/right" unique_id=1602173184]
+custom_minimum_size = Vector2(234, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0wfyh")
+tabs_visible = false
+
+[node name="popup" type="PopupMenu" parent="." unique_id=942386448]
+unique_name_in_owner = true
+sdf_oversize = 0
+sdf_scale = 2
+oversampling_override = 1.0
+size = Vector2i(38, 13)
+hide_on_item_selection = false

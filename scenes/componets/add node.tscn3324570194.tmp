@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://c27wqcr1yijhf"]
+
+[ext_resource type="Script" uid="uid://cyr2fyk3jytww" path="res://scripts/gui/components/insert.gd" id="1_e5gfw"]
+[ext_resource type="Theme" uid="uid://5axnb3y8yxxe" path="res://assets/ui themes/insert window.tres" id="1_pouv7"]
+
+[node name="AddNode" type="Window" unique_id=909188815]
+oversampling_override = 1.0
+title = "insert a new node"
+position = Vector2i(0, 36)
+size = Vector2i(625, 419)
+min_size = Vector2i(557, 419)
+script = ExtResource("1_e5gfw")
+
+[node name="panel" type="PanelContainer" parent="." unique_id=27017879]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pouv7")
+theme_type_variation = &"bg_panel"
+
+[node name="wraper" type="HBoxContainer" parent="panel" unique_id=420931986]
+layout_mode = 2
+
+[node name="wraper" type="VBoxContainer" parent="panel/wraper" unique_id=1359333887]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="top wraper" type="HBoxContainer" parent="panel/wraper/wraper" unique_id=588153644]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="panel/wraper/wraper/top wraper" unique_id=269290041]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "filter"
+clear_button_enabled = true
+flat = true
+
+[node name="wraper" type="PanelContainer" parent="panel/wraper/wraper" unique_id=902398527]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_pouv7")
+theme_type_variation = &"tree_panel"
+
+[node name="Tree" type="Tree" parent="panel/wraper/wraper/wraper" unique_id=415495487]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_pouv7")
+hide_root = true
+
+[node name="Label" type="Label" parent="panel/wraper/wraper" unique_id=775286455]
+custom_minimum_size = Vector2(0, 111)
+custom_maximum_size = Vector2(-1, 111)
+layout_mode = 2
+text = "select object from the list to see its description"
+autowrap_mode = 3
+
+[node name="wraper btn" type="HBoxContainer" parent="panel/wraper/wraper" unique_id=1353449181]
+layout_mode = 2
+alignment = 1
+
+[node name="insert" type="Button" parent="panel/wraper/wraper/wraper btn" unique_id=10000010]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pouv7")
+disabled = true
+text = "insert"
+flat = true
+
+[node name="filler" type="Control" parent="panel/wraper/wraper/wraper btn" unique_id=149968196]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="cancel" type="Button" parent="panel/wraper/wraper/wraper btn" unique_id=1633466196]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "cancel"
+flat = true
+
+[connection signal="item_selected" from="panel/wraper/wraper/wraper/Tree" to="." method="_on_tree_item_selected"]
+[connection signal="pressed" from="panel/wraper/wraper/wraper btn/insert" to="." method="_on_insert_pressed"]
+[connection signal="pressed" from="panel/wraper/wraper/wraper btn/cancel" to="." method="_on_cancel_pressed"]

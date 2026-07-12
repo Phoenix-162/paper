@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bad0r5w20bvxt"]
+
+[ext_resource type="Script" uid="uid://youyj30ul2iv" path="res://scripts/gui/panels/outliner.gd" id="1_3m1jb"]
+[ext_resource type="Theme" uid="uid://corogac0y7yqt" path="res://assets/ui themes/outliner.tres" id="2_5niti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5niti"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htemk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5niti"]
+
+[node name="Object list" type="PanelContainer" unique_id=852785188]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5niti")
+script = ExtResource("1_3m1jb")
+
+[node name="wraper" type="VBoxContainer" parent="." unique_id=1198262937]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="wraper" type="PanelContainer" parent="wraper" unique_id=499945097]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_htemk")
+
+[node name="wraper" type="HBoxContainer" parent="wraper/wraper" unique_id=612944505]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="insert" type="Button" parent="wraper/wraper/wraper" unique_id=1603089116]
+custom_minimum_size = Vector2(32.89, 0)
+layout_mode = 2
+text = "+"
+flat = true
+
+[node name="filter" type="LineEdit" parent="wraper/wraper/wraper" unique_id=1776529602]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5niti")
+placeholder_text = "filter outliner"
+clear_button_enabled = true
+flat = true
+
+[node name="Tree" type="Tree" parent="wraper" unique_id=742936460]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_5niti")
+theme_type_variation = &"default"
+allow_rmb_select = true
+hide_root = true
+auto_tooltip = false
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="pressed" from="wraper/wraper/wraper/insert" to="." method="_on_insert_pressed"]
+[connection signal="item_mouse_selected" from="wraper/Tree" to="." method="_on_tree_item_mouse_selected"]
+[connection signal="item_selected" from="wraper/Tree" to="." method="_on_tree_item_selected"]

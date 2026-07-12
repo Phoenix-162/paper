@@ -1,0 +1,62 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="paper"
+run/main_scene="uid://bb0fyoqlgtljj"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://assets/images/icon.svg"
+
+[autoload]
+
+PanelManager="*res://scripts/globals/panel manager.gd"
+SaveManager="*res://scripts/globals/SaveManager.gd"
+PluginManager="*res://scripts/globals/PluginManager.gd"
+HooksManager="*uid://oo4mr7poqnur"
+
+[display]
+
+window/subwindows/embed_subwindows=false
+window/stretch/scale_mode="integer"
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="papers"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[importer_defaults]
+
+3d_texture={
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/rdo_quality_loss": 0.0,
+"compress/uastc_level": 0,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
+"slices/horizontal": 8,
+"slices/vertical": 8
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="gl_compatibility"

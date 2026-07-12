@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bad0r5w20bvxt"]
+
+[ext_resource type="Script" uid="uid://youyj30ul2iv" path="res://scripts/gui/panels/outliner.gd" id="1_3m1jb"]
+[ext_resource type="Theme" uid="uid://bolcjwqn84m6c" path="res://assets/ui themes/object card.tres" id="2_5niti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5niti"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="FoldableGroup" id="FoldableGroup_3m1jb"]
+
+[node name="Object list" type="PanelContainer" unique_id=852785188]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5niti")
+script = ExtResource("1_3m1jb")
+
+[node name="wraper" type="VBoxContainer" parent="." unique_id=918598109]
+layout_mode = 2
+
+[node name="root" type="FoldableContainer" parent="wraper" unique_id=64996462]
+unique_name_in_owner = true
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_5niti")
+theme_type_variation = &"no_arrow"
+theme_override_constants/h_separation = 2
+title = "outliner"
+foldable_group = SubResource("FoldableGroup_3m1jb")
+
+[node name="scroll" type="ScrollContainer" parent="wraper/root" unique_id=1396505836]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Tree" type="Tree" parent="wraper/root/scroll" unique_id=742936460]
+unique_name_in_owner = true
+layout_mode = 2

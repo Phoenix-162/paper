@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://5ej4x3m3lnx2"]
+
+[ext_resource type="Script" uid="uid://uw3irhpheahh" path="res://scripts/gui/panels/project list.gd" id="1_xou54"]
+[ext_resource type="Theme" uid="uid://bmgp0723187ks" path="res://assets/ui themes/file picker.tres" id="2_8avur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv52i"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.33, 0.33, 0.33, 1)
+
+[node name="project list" type="PanelContainer" unique_id=432163731]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lv52i")
+script = ExtResource("1_xou54")
+
+[node name="wraper" type="HBoxContainer" parent="." unique_id=1159956967]
+layout_mode = 2
+
+[node name="buttons" type="VBoxContainer" parent="wraper" unique_id=1168998763]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="new" type="Button" parent="wraper/buttons" unique_id=1248242330]
+layout_mode = 2
+text = "new"
+
+[node name="load" type="Button" parent="wraper/buttons" unique_id=147505400]
+layout_mode = 2
+text = "load"
+
+[node name="VSeparator" type="VSeparator" parent="wraper" unique_id=893729935]
+layout_mode = 2
+
+[node name="wraaper" type="VBoxContainer" parent="wraper" unique_id=1631799631]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lablels" type="RichTextLabel" parent="wraper/wraaper" unique_id=1658393864]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center] project list[/center] "
+fit_content = true
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="wraper/wraaper" unique_id=1511797597]
+layout_mode = 2
+
+[node name="scrool" type="ScrollContainer" parent="wraper/wraaper" unique_id=1772609852]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="lists" type="VBoxContainer" parent="wraper/wraaper/scrool" unique_id=2072268194]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=49256888]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open File(s)"
+size = Vector2i(1000, 500)
+transient_to_focused = true
+theme = ExtResource("2_8avur")
+file_mode = 1
+access = 2
+filters = PackedStringArray(".paper")
+favorites_enabled = false
+recent_list_enabled = false
+
+[connection signal="pressed" from="wraper/buttons/new" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="wraper/buttons/load" to="." method="_on_load_pressed"]
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

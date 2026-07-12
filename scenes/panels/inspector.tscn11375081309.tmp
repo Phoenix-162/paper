@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dpjufnn834qka"]
+
+[ext_resource type="Script" uid="uid://dq00ktafvdt11" path="res://scripts/gui/panels/inspector.gd" id="1_25wxg"]
+[ext_resource type="Theme" uid="uid://jwgl44dolltc" path="res://assets/ui themes/inspector.tres" id="1_ai54n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ceke8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0mwi"]
+
+[node name="Inspector" type="PanelContainer" unique_id=614448841]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ai54n")
+script = ExtResource("1_25wxg")
+
+[node name="wraper" type="VBoxContainer" parent="." unique_id=1496207789]
+layout_mode = 2
+
+[node name="border" type="MarginContainer" parent="wraper" unique_id=1156082986]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="scroll" type="ScrollContainer" parent="wraper/border" unique_id=1534061385]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="wraper" type="VBoxContainer" parent="wraper/border/scroll" unique_id=954674279]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="storage" type="CanvasLayer" parent="." unique_id=1940695135]
+visible = false
+
+[node name="types" type="VBoxContainer" parent="storage" unique_id=1134021832]
+offset_right = 386.0
+offset_bottom = 93.0
+
+[node name="bool" type="BoxContainer" parent="storage/types" unique_id=1569706478]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="storage/types/bool" unique_id=1128805128]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "bool"
+label_settings = SubResource("LabelSettings_ceke8")
+clip_text = true
+
+[node name="value" type="CheckBox" parent="storage/types/bool" unique_id=1317916463]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "on"
+
+[node name="String" type="BoxContainer" parent="storage/types" unique_id=47080723]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="storage/types/String" unique_id=1182428913]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "string"
+label_settings = SubResource("LabelSettings_q0mwi")
+clip_text = true
+
+[node name="value" type="LineEdit" parent="storage/types/String" unique_id=2131051840]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Int" type="BoxContainer" parent="storage/types" unique_id=344865158]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="storage/types/Int" unique_id=576667021]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "int"
+label_settings = SubResource("LabelSettings_q0mwi")
+clip_text = true
+
+[node name="value" type="SpinBox" parent="storage/types/Int" unique_id=1753387355]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Color" type="BoxContainer" parent="storage/types" unique_id=1984445732]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="storage/types/Color" unique_id=436995821]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "color"
+label_settings = SubResource("LabelSettings_q0mwi")
+clip_text = true
+
+[node name="value" type="ColorPickerButton" parent="storage/types/Color" unique_id=377921562]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nil" type="BoxContainer" parent="storage/types" unique_id=1260830531]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="panel" type="PanelContainer" parent="storage/types/Nil" unique_id=1898208324]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="storage/types/Nil/panel" unique_id=39168961]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "null"
+label_settings = SubResource("LabelSettings_q0mwi")
+horizontal_alignment = 1
+
+[node name="Vector2" type="BoxContainer" parent="storage/types" unique_id=1155184255]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="storage/types/Vector2" unique_id=251323942]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_q0mwi")
+
+[node name="Vector3" type="BoxContainer" parent="storage/types" unique_id=1330039100]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="storage/types/Vector3" unique_id=1445883177]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_q0mwi")
+
+[node name="Vector4" type="BoxContainer" parent="storage/types" unique_id=315469280]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="storage/types/Vector4" unique_id=2032448078]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_q0mwi")

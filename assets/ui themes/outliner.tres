@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://corogac0y7yqt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5niti"]
+bg_color = Color(0.228, 0.29619992, 0.6, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_da14k"]
+
+[resource]
+TooltipLabel/base_type = &"TooltipLabel"
+TooltipLabel/font_sizes/font_size = 15
+default/base_type = &"Tree"
+default/colors/guide_color = Color(1, 0, 0, 0)
+default/font_sizes/font_size = 15
+default/styles/hovered_selected = SubResource("StyleBoxFlat_5niti")
+default/styles/selected = SubResource("StyleBoxFlat_5niti")
+default/styles/selected_focus = SubResource("StyleBoxEmpty_da14k")

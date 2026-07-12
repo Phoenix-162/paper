@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg53v8iwvfcsb"]
+
+[ext_resource type="Script" uid="uid://caui8q33lesu2" path="res://scripts/gui/panels/viewport.gd" id="1_4b8ye"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_drljg"]
+
+[sub_resource type="Sky" id="Sky_jjeam"]
+sky_material = SubResource("ProceduralSkyMaterial_drljg")
+
+[sub_resource type="Environment" id="Environment_oea0u"]
+background_mode = 2
+sky = SubResource("Sky_jjeam")
+
+[sub_resource type="World3D" id="World3D_47x56"]
+environment = SubResource("Environment_oea0u")
+
+[node name="3dViewports" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4b8ye")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="viewport" type="SubViewportContainer" parent="."]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="viewport"]
+world_3d = SubResource("World3D_47x56")
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="world" type="Node3D" parent="viewport/SubViewport"]
+
+[node name="camera" type="Camera3D" parent="viewport/SubViewport/world"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3372033, -0.23867083)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="viewport/SubViewport/world"]
+size = Vector3(11.445, 1, 15.11)

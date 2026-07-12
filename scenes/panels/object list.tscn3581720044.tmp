@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bad0r5w20bvxt"]
+
+[ext_resource type="Script" uid="uid://youyj30ul2iv" path="res://scripts/gui/panels/outliner.gd" id="1_3m1jb"]
+[ext_resource type="Theme" uid="uid://corogac0y7yqt" path="res://assets/ui themes/outliner.tres" id="2_5niti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5niti"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Object list" type="PanelContainer" unique_id=852785188]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5niti")
+script = ExtResource("1_3m1jb")
+
+[node name="Tree" type="Tree" parent="." unique_id=742936460]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_5niti")
+theme_type_variation = &"default"
+allow_rmb_select = true
+auto_tooltip = false
+
+[connection signal="item_mouse_selected" from="Tree" to="." method="_on_tree_item_mouse_selected"]
+[connection signal="item_selected" from="Tree" to="." method="_on_tree_item_selected"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb0fyoqlgtljj"]
+
+[ext_resource type="Script" uid="uid://d4gdq1peawl2g" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://5ej4x3m3lnx2" path="res://scenes/panels/welcome.tscn" id="2_0wfyh"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+
+[node name="main panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hsplit" type="HSplitContainer" parent="main panel"]
+layout_mode = 2
+
+[node name="Vsplit" type="VSplitContainer" parent="main panel/Hsplit"]
+layout_mode = 2
+
+[node name="wraaper" type="VBoxContainer" parent="main panel/Hsplit/Vsplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="tab bar" type="TabBar" parent="main panel/Hsplit/Vsplit/wraaper"]
+unique_name_in_owner = true
+layout_mode = 2
+current_tab = 0
+tab_close_display_policy = 2
+drag_to_rearrange_enabled = true
+select_with_rmb = true
+tab_count = 2
+tab_0/title = "wellcome"
+tab_1/title = "tes"
+
+[node name="tabs page" type="TabContainer" parent="main panel/Hsplit/Vsplit/wraaper"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+tabs_visible = false
+
+[node name="Welcome screen" parent="main panel/Hsplit/Vsplit/wraaper/tabs page" instance=ExtResource("2_0wfyh")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Panel" type="Panel" parent="main panel/Hsplit/Vsplit/wraaper/tabs page"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[connection signal="tab_close_pressed" from="main panel/Hsplit/Vsplit/wraaper/tab bar" to="." method="_on_main_tab_tab_close_pressed"]
+[connection signal="tab_rmb_clicked" from="main panel/Hsplit/Vsplit/wraaper/tab bar" to="." method="_on_tab_bar_tab_rmb_clicked"]
+[connection signal="tab_selected" from="main panel/Hsplit/Vsplit/wraaper/tab bar" to="." method="_on_main_tab_tab_selected"]
